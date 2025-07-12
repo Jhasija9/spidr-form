@@ -68,17 +68,19 @@ export default function SpidrForm() {
 
   // Validation functions
   const validateName = (name: string, fieldName: string): { isValid: boolean; error: string } => {
-    if (!name.trim()) {
+    const trimmed = name.trim()
+  
+    if (!trimmed) {
       return { isValid: false, error: `${fieldName} is required` }
     }
-    if (!/^[a-zA-Z\s\-']+$/.test(name)) {
-      return { isValid: false, error: "Only letters, hyphens, and spaces allowed" }
+  
+    if (!/^[a-zA-Z.\s]+$/.test(trimmed)) {
+      return { isValid: false, error: "Only letters and spaces are allowed" }
     }
-    if (name.includes("@")) {
-      return { isValid: false, error: "Enter a valid name" }
-    }
+  
     return { isValid: true, error: "" }
   }
+  
 
   const validatePhone = (phone: string): { isValid: boolean; error: string } => {
     if (!phone.trim()) {
@@ -240,8 +242,37 @@ export default function SpidrForm() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center p-4">
-      <div className="w-full max-w-[500px] space-y-6">
+    
+    <div className="min-h-screen bg-[#1E1E1E] flex flex-col items-center justify-center px-4 py-10">
+    {/* Branding Section */}
+    <div className="flex flex-col items-center mb-6">
+      {/* Hanging spider */}
+      <div className="relative h-24 w-6">
+        <div className="absolute w-px h-16 bg-gray-500 top-0 left-1/2 transform -translate-x-1/2" />
+        <img
+          src="https://spidr.design/build/images/spidr-logo.png"
+          alt="Spidr Logo"
+          className="absolute top-16 left-1/2 transform -translate-x-1/2 w-6 h-6"
+        />
+      </div>
+
+      {/* Spidr Title */}
+      <img
+        src="https://spidr.design/build/images/spidr-title.png"
+        alt="Spidr Title"
+        className="w-36 mt-2"
+      />
+    </div>
+
+    {/* Form Container */}
+    <div className="w-full max-w-[500px] space-y-6 bg-[#121212] border border-[#2A2A2A] rounded-xl shadow-lg p-8">
+      <h2 className="text-white text-2xl font-semibold text-center mb-4">
+        Behold: The SpidrFry™ 9000
+      </h2>
+
+
+
+
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* First Name */}
           <div className="space-y-2">
@@ -254,7 +285,7 @@ export default function SpidrForm() {
               value={formData.firstName}
               onChange={(e) => handleInputChange("firstName", e.target.value)}
               placeholder="Enter your first name"
-              className={`w-full px-4 py-3 bg-gray-900/50 border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
+              className={`w-full px-4 py-3 bg-[#2A2A2A] border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
                 errors.firstName ? "border-red-500" : valid.firstName ? "border-green-500" : "border-gray-700"
               }`}
             />
@@ -272,7 +303,7 @@ export default function SpidrForm() {
               value={formData.lastName}
               onChange={(e) => handleInputChange("lastName", e.target.value)}
               placeholder="Enter your last name"
-              className={`w-full px-4 py-3 bg-gray-900/50 border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
+              className={`w-full px-4 py-3 bg-[#2A2A2A] border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
                 errors.lastName ? "border-red-500" : valid.lastName ? "border-green-500" : "border-gray-700"
               }`}
             />
@@ -290,7 +321,7 @@ export default function SpidrForm() {
               value={formData.phone}
               onChange={(e) => handleInputChange("phone", e.target.value)}
               placeholder="e.g. (123) 456-7890"
-              className={`w-full px-4 py-3 bg-gray-900/50 border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
+              className={`w-full px-4 py-3 bg-[#2A2A2A] border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
                 errors.phone ? "border-red-500" : valid.phone ? "border-green-500" : "border-gray-700"
               }`}
             />
@@ -308,7 +339,7 @@ export default function SpidrForm() {
               value={formData.email}
               onChange={(e) => handleInputChange("email", e.target.value)}
               placeholder="Enter your email address"
-              className={`w-full px-4 py-3 bg-gray-900/50 border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
+              className={`w-full px-4 py-3 bg-[#2A2A2A] border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
                 errors.email ? "border-red-500" : valid.email ? "border-green-500" : "border-gray-700"
               }`}
             />
@@ -330,7 +361,7 @@ export default function SpidrForm() {
                 value={formData.airFryerCost}
                 onChange={(e) => handleInputChange("airFryerCost", e.target.value)}
                 placeholder="0.00"
-                className={`w-full pl-8 pr-4 py-3 bg-gray-900/50 border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
+                className={`w-full pl-8 pr-4 py-3 bg-[#2A2A2A] border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
                   errors.airFryerCost ? "border-red-500" : valid.airFryerCost ? "border-green-500" : "border-gray-700"
                 }`}
               />
@@ -351,7 +382,7 @@ export default function SpidrForm() {
       onChange={(e) => handleInputChange("spidrPin", e.target.value)}
       placeholder="####-####-####-####"
       maxLength={19}
-      className={`w-full px-4 py-3 pr-12 bg-gray-900/50 border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
+      className={`w-full px-4 py-3 pr-12 bg-[#2A2A2A] border rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:shadow-lg focus:shadow-blue-500/20 ${
         errors.spidrPin ? "border-red-500" : valid.spidrPin ? "border-green-500" : "border-gray-700"
       }`}
     />
@@ -401,5 +432,4 @@ export default function SpidrForm() {
     </div>
   )
 }
-
 
