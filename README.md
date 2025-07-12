@@ -19,8 +19,9 @@ The purpose of this project is to replicate Spidr’s visual branding and UX sty
   - **Email**: Standard email validation
   - **Cost**: Minimum value $0.01
   - **Spidr PIN**: Must be in `####-####-####-####` format
-- PIN input with show/hide toggle
-- Submits form data to the console
+- PIN input includes a show/hide toggle for better UX
+- **Security Detail**: Spidr PIN is Base64-encoded before being logged to the console
+- Submits form data to the browser console
 
 ---
 
