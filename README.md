@@ -27,20 +27,20 @@ The purpose of this project is to replicate Spidr’s visual branding and UX sty
 ## Screenshots
 
 ### Valid Form State
+<img width="1512" height="904" alt="Screenshot 2025-07-11 at 11 24 42 PM" src="https://github.com/user-attachments/assets/ca82b9e7-ead4-4d8d-af02-c6abf227d090" />
 
-![Valid Form](https://files.chat.openai.com/file-9Xs81To1MJ3TgSFz38fdpR)
 
 ---
 
 ### Console Output on Submit
+<img width="921" height="159" alt="Screenshot 2025-07-11 at 11 25 13 PM" src="https://github.com/user-attachments/assets/38022a88-d2ca-4fb3-bcca-5b71f198613d" />
 
-![Console Output](https://files.chat.openai.com/file-6YXosDkD5aYhN93dYTbrQP)
 
 ---
 
 ### Error State with Validation
+<img width="1511" height="907" alt="Screenshot 2025-07-11 at 11 26 03 PM" src="https://github.com/user-attachments/assets/ec263e8e-5940-4c5d-95ff-5f5030c7a444" />
 
-![Validation Errors](https://files.chat.openai.com/file-6KZSqKCtYBHJ9TZATSNyo2)
 
 ---
 
